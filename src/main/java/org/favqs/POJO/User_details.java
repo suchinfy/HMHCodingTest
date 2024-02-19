@@ -10,31 +10,15 @@ public class User_details {
         return favorite;
     }
 
-    public void setFavorite(Boolean favorite) {
-        this.favorite = favorite;
-    }
-
     public Boolean getUpvote() {
         return upvote;
-    }
-
-    public void setUpvote(Boolean upvote) {
-        this.upvote = upvote;
     }
 
     public Boolean getDownvote() {
         return downvote;
     }
 
-    public void setDownvote(Boolean downvote) {
-        this.downvote = downvote;
-    }
-
     public Boolean getHidden() {
         return hidden;
-    }
-
-    public void setHidden(Boolean hidden) {
-        this.hidden = hidden;
     }
 }

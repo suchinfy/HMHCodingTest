@@ -1,7 +1,7 @@
-package org.favqs;
+package org.favqs.utils;
 
 public class RequestBodyBuilder {
-    public static String buildAddBookRequestBody(String email, String password) {
+    public static String buildCreateSessionRequestBody(String email, String password) {
         return "{\n" +
                 "\"user\": {\n" +
                 "  \"login\": \"" + email + "\",\n" +
