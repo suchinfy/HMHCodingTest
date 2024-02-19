@@ -1,6 +1,5 @@
 package org.favqs.tests;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.favqs.POJO.ListQuotes;
 import org.favqs.Routes;
@@ -8,9 +7,6 @@ import org.favqs.utils.BaseSpecUtil;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;

@@ -30,12 +30,16 @@ We need to give provide some parameters to run the tests. These details are user
 
 ## Additional test cases which are not included-
 ### List quotes-
-1. Test list quotes by providing page parameters
-2. Test list quotes with different combination of filters
+1. Test list quotes by providing page parameters. The corresponding page results should be returned.
+2. Test list quotes with different combination of filters. 
+3. Test list quotes without authentication token(API key). Appropriate error should be returned.
+4. Test list quotes without user token(list quotes endpoint should work even without user token)
 
 ### Fav Quote
-1. Test mark favorite without providing the user token
-2. Test unmark favorite without providing user token
+1. Test mark favorite without providing the user token. Appropriate error should be returned.
+2. Test unmark favorite without providing user token. Appropriate error should be returned.
+3. Test mark favorite without providing authentication token. Appropriate error should be returned.
+4. Test unmark favorite without providing authentication token. Appropriate error should be returned.
 
 We can also perform Performance testing of both List Quotes and Fav Quote APIs like load testing and Stress testing. This can be achieved with automation using Gatling.
 
