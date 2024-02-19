@@ -8,10 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
-    String login;
-    String password;
+    private String login;
+    private String password;
     static String authToken;
     static String userToken;
+
     @BeforeSuite
     public void createUserAndAuthorize() {
         login = System.getProperty("login");
@@ -19,6 +20,7 @@ public class BaseTest {
         authToken = System.getProperty("authToken");
         userToken = getUserSession(login, password, authToken);
     }
+
     public String getUserSession(String login, String password, String authToken) {
         String requestBody = RequestBodyBuilder.buildCreateSessionRequestBody(login, password);
         Response response = BaseSpecUtil.postRequest(authToken, requestBody, Routes.baseUrl + Routes.createSession);
@@ -27,10 +29,10 @@ public class BaseTest {
         return response.jsonPath().get("User-Token");
     }
 
-        public void hideQuote(String authToken, int quoteId, String userToken) {
-            String hideQuotesEndpoint = String.format(Routes.hideQuote, quoteId);
-            Response response = BaseSpecUtil.putRequest(authToken, userToken, Routes.baseUrl + hideQuotesEndpoint);
-            System.out.println(response.getBody().asString());
-            Assert.assertEquals(response.getStatusCode(), 200);
-        }
+    public void hideQuote(String authToken, int quoteId, String userToken) {
+        String hideQuotesEndpoint = String.format(Routes.hideQuote, quoteId);
+        Response response = BaseSpecUtil.putRequest(authToken, userToken, Routes.baseUrl + hideQuotesEndpoint);
+        System.out.println(response.getBody().asString());
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
 }

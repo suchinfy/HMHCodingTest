@@ -10,20 +10,20 @@ public class BaseSpecUtil {
 
     private static RequestSpecification baseRequestSpec(String authToken, Object payload) {
         return given()
-                .header("Authorization", "Token token=\"" + authToken+"\"")
+                .header("Authorization", "Token token=\"" + authToken + "\"")
                 .contentType(ContentType.JSON)
                 .body(payload);
     }
 
     private static RequestSpecification baseRequestSpec(String authToken, String userToken) {
         return given()
-                .header("Authorization", "Token token=\"" + authToken+"\"")
+                .header("Authorization", "Token token=\"" + authToken + "\"")
                 .header("User-Token", userToken)
                 .contentType(ContentType.JSON);
     }
 
     public static Response postRequest(String authToken, Object payload, String endPoint) {
-        RequestSpecification specs = baseRequestSpec(authToken,payload);
+        RequestSpecification specs = baseRequestSpec(authToken, payload);
         Response response = specs
                 .when()
                 .post(endPoint);

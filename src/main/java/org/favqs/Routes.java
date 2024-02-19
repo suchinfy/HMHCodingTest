@@ -8,5 +8,4 @@ public class Routes {
     public static String hideQuote = "/quotes/%s/hide";
     public static String createSession = "/session";
 
-
 }

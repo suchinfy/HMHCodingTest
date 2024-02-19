@@ -24,7 +24,8 @@ public class ListQuotesTest extends BaseTest {
     public void testListQuotes() {
         Response response = BaseSpecUtil.getRequest(authToken, userToken, Routes.baseUrl + Routes.listQuotes);
         Reporter.log(response.body().prettyPrint());
-        response.then().statusCode(equalTo(200));
+
+        assertEquals(response.getStatusCode(), 200);
         ListQuotes results = response.body().as(ListQuotes.class);
         assertThat(results.getQuotes().size(), greaterThan(0));
     }
@@ -33,8 +34,11 @@ public class ListQuotesTest extends BaseTest {
     public void testListQuotesWithFilter() {
         Response response = BaseSpecUtil.getRequest(authToken, userToken, Routes.baseUrl + Routes.listQuotes + "?filter=funny&type=tag");
         Reporter.log(response.body().prettyPrint());
-        response.then().statusCode(equalTo(200));
+
+        assertEquals(response.getStatusCode(), 200);
         ListQuotes results = response.body().as(ListQuotes.class);
+
+        // assert each quote in the result has at least one of the tags as 'funny'
         results.getQuotes().forEach(
                 result -> assertThat(result.getTags(), hasItem("funny"))
         );
@@ -45,14 +49,18 @@ public class ListQuotesTest extends BaseTest {
         hideQuote(authToken, hideQuoteId, userToken);
         Response response = BaseSpecUtil.getRequest(authToken, userToken, Routes.baseUrl + Routes.listQuotes + "?hidden=1");
         Reporter.log(response.body().prettyPrint());
+
         Assert.assertEquals(response.getStatusCode(), 200);
         ListQuotes results = response.body().as(ListQuotes.class);
+
+        // assert the quote id which was hidden is present in one of the results
         assertEquals(1,
                 results.getQuotes().stream().filter(q -> q.getId().equals(hideQuoteId)).count()
         );
+
+        // assert each quote in the result has hidden attribute as true
         results.getQuotes().forEach(
                 q -> assertTrue(q.getUser_details().getHidden())
         );
     }
-
 }
