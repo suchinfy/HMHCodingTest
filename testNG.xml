@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Appmetry/Project/restassured_api">
+        <classes>
+            <class name="org.favqs.tests.FavQuotesTest">
+                <methods>
+                    <include name="TestMarkFavorite"/>
+                    <include name="TestQuoteNotFound"/>
+                    <include name="TestUnmarkFavorite"/>
+                </methods>
+            </class>
+            <class name="org.favqs.tests.ListQuotesTest">
+                <methods>
+                    <include name="testListQuotes"/>
+                    <include name="testListQuotesWithFilter"/>
+                    <include name="testListHiddenQuotes"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

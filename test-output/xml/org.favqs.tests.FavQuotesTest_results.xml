@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/Appmetry/Project/restassured_api"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="1.198">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TestMarkFavorite"
+                time="0.603"
+                classname="org.favqs.tests.FavQuotesTest">
+            </testcase>
+            <testcase
+                name="TestUnmarkFavorite"
+                time="0.315"
+                classname="org.favqs.tests.FavQuotesTest">
+            </testcase>
+            <testcase
+                name="TestQuoteNotFound"
+                time="0.280"
+                classname="org.favqs.tests.FavQuotesTest">
+            </testcase>
+</testsuite>
