@@ -8,15 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
-    private String login;
-    private String password;
     static String authToken;
     static String userToken;
 
     @BeforeSuite
-    public void createUserAndAuthorize() {
-        login = System.getProperty("login");
-        password = System.getProperty("password");
+    public void getUserDetails() {
+        String login = System.getProperty("login");
+        String password = System.getProperty("password");
         authToken = System.getProperty("authToken");
         userToken = getUserSession(login, password, authToken);
     }
